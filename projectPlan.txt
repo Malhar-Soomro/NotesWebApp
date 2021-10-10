@@ -1,0 +1,2 @@
+create two components named create page(where data will be inserted) and notes page(where data will be displayed);
+setup routing create page(home page, "/") and notes page(/notes) 
