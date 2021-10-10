@@ -1,2 +1,7 @@
+title, text fields for title and description created now error checking for text fields is remaining
+
+
+
 create two components named create page(where data will be inserted) and notes page(where data will be displayed);
 setup routing create page(home page, "/") and notes page(/notes) 
+create createPage.js component, title, text fields for title and description , radiobuttons and submit button
