@@ -1,5 +1,5 @@
 // rafce
-import { Button, Container, TextField, Typography } from '@material-ui/core'
+import { Button, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import React, { useState } from 'react'
 
@@ -19,8 +19,16 @@ const UseStyle = makeStyles({
         marginTop: "15px",
         marginBottom: "15px"
     }
-})
+});
+
+let radioValue;
 const createPage = () => {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [value, setValue] = useState(null);
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [title, setTitle] = useState("");
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -36,14 +44,20 @@ const createPage = () => {
     const onClickHandler = () => {
         if (title) {
             setDetailError(true);
+            setTitleError(false);
         }
         if (detail) {
             setTitleError(true);
+            setDetailError(false);
         }
         if (title && detail) {
-            console.log(title, detail);
+            console.log(title, detail, value);
             setTitleError(false);
             setDetailError(false);
+        }
+        if (title === "" && detail === "") {
+            setTitleError(true);
+            setDetailError(true);
         }
     }
 
@@ -80,15 +94,26 @@ const createPage = () => {
                 multiline
                 rows={3}
             />
-            <Button
 
-                className={classes.button}
-                variant="contained"
-                color="secondary"
-                onClick={onClickHandler}
-            >
-                Submit
-            </Button>
+            <FormControl component="fieldset">
+                <FormLabel component="legend">Category</FormLabel>
+                <RadioGroup aria-label="category" name="category"
+                    value={value} onChange={handleChange}>
+                    <FormControlLabel value="money" control={<Radio />} label="Money" />
+                    <FormControlLabel value="work" control={<Radio />} label="Work" />
+                    <FormControlLabel value="reminder" control={<Radio />} label="Reminder" />
+                    <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+                </RadioGroup>
+                <Button
+
+                    className={classes.button}
+                    variant="contained"
+                    color="secondary"
+                    onClick={onClickHandler}
+                >
+                    Submit
+                </Button>
+            </FormControl>
         </Container >
     )
 }
