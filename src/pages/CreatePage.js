@@ -34,8 +34,16 @@ const createPage = () => {
 
 
     const onClickHandler = () => {
+        if (title) {
+            setDetailError(true);
+        }
+        if (detail) {
+            setTitleError(true);
+        }
         if (title && detail) {
             console.log(title, detail);
+            setTitleError(false);
+            setDetailError(false);
         }
     }
 
