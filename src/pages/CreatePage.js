@@ -2,7 +2,7 @@
 import { Button, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import React, { useState } from 'react'
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 const UseStyle = makeStyles({
     title: {
         marginTop: "10px",
@@ -21,7 +21,6 @@ const UseStyle = makeStyles({
     }
 });
 
-let radioValue;
 const createPage = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -105,11 +104,11 @@ const createPage = () => {
                     <FormControlLabel value="todos" control={<Radio />} label="Todos" />
                 </RadioGroup>
                 <Button
-
                     className={classes.button}
                     variant="contained"
                     color="secondary"
                     onClick={onClickHandler}
+                    endIcon={<ArrowForwardIosIcon fontSize="small" />}
                 >
                     Submit
                 </Button>
