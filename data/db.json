@@ -3,16 +3,37 @@
         {
             "id": 1,
             "title": "json-server",
+            "category": "work",
             "detail": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)Created with <3 for front-end developers who need a quick back-end for prototyping and mocking"
         },
         {
             "id": 2,
             "title": "SDA Project",
+            "category": "todos",
             "detail": "Get a full fake REST API with zero coding in less than 30 seconds (seriously)Created"
         },
         {
             "id": 3,
             "title": "Withdraw money",
+            "category": "reminder",
+            "detail": "Get a full fake REST API with zero  with <3 for front-end developers who need a quick back-end for prototyping and mocking"
+        },
+        {
+            "id": 4,
+            "title": "CN Assignment",
+            "category": "todos",
+            "detail": "Computer network, two or more computers that are connected with one another for the purpose of communicating data electronically. ... Two basic network types are local-area networks (LANs) and wide-area networks (WANs)"
+        },
+        {
+            "id": 5,
+            "title": "Withdraw money",
+            "category": "reminder",
+            "detail": "Get a full fake REST API with zero  with <3 for front-end developers who need a quick back-end for prototyping and mocking"
+        },
+        {
+            "id": 6,
+            "title": "Withdraw money",
+            "category": "reminder",
             "detail": "Get a full fake REST API with zero  with <3 for front-end developers who need a quick back-end for prototyping and mocking"
         }
     ]

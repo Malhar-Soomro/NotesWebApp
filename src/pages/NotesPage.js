@@ -1,5 +1,6 @@
-import { Grid, Paper } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import React, { useState, useEffect } from 'react'
+import NoteCard from '../components/NoteCard';
 
 const NotesPage = () => {
     const [notes, setNotes] = useState([]);
@@ -16,20 +17,32 @@ const NotesPage = () => {
         fetchData();
     }, []);
     return (
-
-        <div>
-            <Grid container>
-                {notes.map(note => (
-                    <Grid key={note.id} item lg={4} md={6} sm={12}>
-                        <Paper>{note.title}</Paper>
-                    </Grid>
-                ))}
+        <Container>
+            <Grid container >
+                {
+                    notes.map(note => {
+                        return (
+                            <Grid item lg={4} md={6}>
+                                <NoteCard
+                                    title={note.title}
+                                    category={note.category}
+                                    detail={note.detail}
+                                />
+                            </Grid>
+                        )
+                    })
+                }
             </Grid>
-            {/* {notes.map(note => (
-                <p key={note.id} >{note.title}, {note.detail}</p>
-            ))} */}
-        </div>
+
+            {/* {
+                notes.map(note => {
+                    return (
+                        <p>{note.title}, {note.detail}</p>
+                    )
+                })
+            } */}
+        </Container>
     )
 }
 
-export default NotesPage
+export default NotesPage;
