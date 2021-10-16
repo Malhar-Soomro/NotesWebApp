@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import CreatePage from './pages/CreatePage';
 import NotesPage from './pages/NotesPage';
+import Layout from './components/Layout';
 
 
 function App() {
@@ -14,12 +15,14 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/">
-            <CreatePage />
-          </Route>
-          <Route exact path="/notes">
-            <NotesPage />
-          </Route>
+          <Layout>
+            <Route exact path="/">
+              <NotesPage />
+            </Route>
+            <Route exact path="/create">
+              <CreatePage />
+            </Route>
+          </Layout>
         </Switch>
       </div>
     </Router>

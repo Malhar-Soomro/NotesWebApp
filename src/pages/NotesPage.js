@@ -22,7 +22,7 @@ const NotesPage = () => {
                 {
                     notes.map(note => {
                         return (
-                            <Grid item lg={4} md={6}>
+                            <Grid key={note.id} item lg={4} md={6}>
                                 <NoteCard
                                     title={note.title}
                                     category={note.category}
