@@ -8,9 +8,7 @@ const NotesPage = () => {
         const url = "http://localhost:5000/notes";
         const data = await fetch(url);
         const parsedData = await data.json();
-        console.log("parsed Data", parsedData);
         setNotes(parsedData);
-        console.log("notes->", notes);
     }
 
     useEffect(() => {
@@ -24,9 +22,12 @@ const NotesPage = () => {
                         return (
                             <Grid key={note.id} item lg={4} md={6}>
                                 <NoteCard
+                                    id={note.id}
                                     title={note.title}
                                     category={note.category}
                                     detail={note.detail}
+                                    setNotes={setNotes}
+                                    notes={notes}
                                 />
                             </Grid>
                         )

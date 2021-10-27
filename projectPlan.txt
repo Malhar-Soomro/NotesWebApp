@@ -11,3 +11,7 @@ Add categories
 
 
 json-server --watch data/db.json --port 5000
+
+side bar will be implemented 
+
+add delete functionality in card component
