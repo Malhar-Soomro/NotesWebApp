@@ -14,4 +14,8 @@ json-server --watch data/db.json --port 5000
 
 side bar will be implemented 
 
-add delete functionality in card component
+add delete functionality in card components
+
+add (create) and (notes) components in the side bar with icons in side bar with functionality
+
+optimize code of side bar components(My Notes and Create Note)
