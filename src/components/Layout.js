@@ -2,12 +2,13 @@ import { makeStyles } from '@material-ui/styles'
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Button, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { format } from 'date-fns'
 import Drawer from '@material-ui/core/Drawer';
 import { AddCircleOutline, SubjectOutlined } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
+
 
 
 const drawerWidth = 240;
@@ -42,9 +43,22 @@ const Layout = ({ children }) => {
     const history = useHistory();
     const location = useLocation();
     const classes = useStyle();
+    const menuItems = [
+        {
+            text: "My Notes",
+            path: "/",
+            icon: <SubjectOutlined
+                color="secondary"
+            />
+        },
+        {
+            text: "Create Note",
+            path: "/create",
+            icon: <AddCircleOutline
+                color="secondary" />
+        }
+    ]
     return (
-
-
         <div className={classes.root}>
             <AppBar
                 className={classes.appbar}
@@ -74,38 +88,22 @@ const Layout = ({ children }) => {
                     </Typography>
 
                     <List>
-                        <ListItem
-                            button
-                            onClick={() => {
-                                history.push("/")
-                                console.log(location.pathname)
-                                console.log(history.location.pathname === location.pathname)
-                            }}
-                            className={history.location.pathname === "/" ? classes.listItem : null}
-                        >
-                            <ListItemIcon>
-                                <SubjectOutlined
-                                    color="secondary"
-                                />
-                            </ListItemIcon>
-                            <ListItemText primary="My Notes" />
-                        </ListItem>
-                        <ListItem
-                            onClick={() => {
-                                history.push("/create")
-                                console.log(location.pathname)
-                                console.log(history.location.pathname === location.pathname)
-                            }}
-                            className={history.location.pathname === "/create" ? classes.listItem : null}
-                            button
-                        >
-                            <ListItemIcon>
-                                <AddCircleOutline
-                                    color="secondary" />
-                            </ListItemIcon>
-                            <ListItemText primary="Create Note" />
-                        </ListItem>
+                        {menuItems.map((item) => {
+                            return (
+                                <ListItem
+                                    button
+                                    onClick={() => history.push(item.path)}
+                                >
+                                    <ListItemIcon>
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.text} />
+                                </ListItem>
+                            )
+                        })}
                     </List>
+
+
 
                 </div>
 
