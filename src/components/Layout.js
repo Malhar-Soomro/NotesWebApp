@@ -2,12 +2,13 @@ import { makeStyles } from '@material-ui/styles'
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { Avatar, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { format } from 'date-fns'
 import Drawer from '@material-ui/core/Drawer';
 import { AddCircleOutline, SubjectOutlined } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import image from "../avatarImg.png"
 
 
 
@@ -34,8 +35,11 @@ const useStyle = makeStyles(theme => ({
     typo: {
         marginTop: "20px"
     },
-    listItem: {
-        backgroundColor: "#D3D3D3"
+    date: {
+        flexGrow: 1
+    },
+    avatar: {
+        margin: "10px"
     }
 }));
 
@@ -67,10 +71,24 @@ const Layout = ({ children }) => {
             >
                 <Toolbar>
                     <Typography
+                        className={classes.date}
                         variant="h6"
                     >
                         Today is {format(new Date(), 'do MMMM Y')}
                     </Typography>
+
+                    <Typography
+                        variant="subtitle1"
+                    >
+                        Malhar
+                    </Typography>
+
+                    <Avatar
+                        className={classes.avatar}
+                        alt="Malhar"
+                        src={image}
+                    > Malhar
+                    </Avatar>
                 </Toolbar>
             </AppBar>
 
@@ -93,6 +111,11 @@ const Layout = ({ children }) => {
                                 <ListItem
                                     button
                                     onClick={() => history.push(item.path)}
+                                    style={
+                                        location.pathname === item.path ? {
+                                            backgroundColor: "#D3D3D3"
+                                        } : null
+                                    }
                                 >
                                     <ListItemIcon>
                                         {item.icon}
@@ -102,13 +125,9 @@ const Layout = ({ children }) => {
                             )
                         })}
                     </List>
-
-
-
                 </div>
 
             </Drawer>
-
             <div className={classes.page}>
                 {children}
             </div>
